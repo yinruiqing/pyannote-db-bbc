@@ -71,6 +71,6 @@ setup(
     # replace MyDatabase by the name of your database (using CamelCase)
     entry_points="""
         [pyannote.database.databases]
-        MyDatabase=MyDatabase:MyDatabase
+        BBC=BBC:BBC
     """
 )
