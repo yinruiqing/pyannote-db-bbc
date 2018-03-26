@@ -62,15 +62,21 @@ class EtapeSpeakerDiarizationProtocol(SpeakerDiarizationProtocol):
 
         data_dir = op.join(op.dirname(op.realpath(__file__)), 'data')
         
+
+        path = op.join(data_dir, '{protocol}.{subset}.uem'.format(subset=subset, protocol=protocol))
+        uems = self.uem_parser_.read(path)
+
         # load annotations
         path = op.join(data_dir, '{protocol}.{subset}.mdtm'.format(subset=subset, protocol=protocol))
         mdtms = self.mdtm_parser_.read(path)
 
         for uri in sorted(mdtms.uris):
+            annotated = uems(uri)
             annotation = mdtms(uri)
             current_file = {
                 'database': 'BBC',
                 'uri': uri,
+                'annotated': annotated,
                 'annotation': annotation}
             yield current_file
 
