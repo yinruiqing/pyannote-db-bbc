@@ -40,7 +40,7 @@ from pyannote.parser import MDTMParser
 # this protocol defines a speaker diarization protocol: as such, a few methods
 # needs to be defined: trn_iter, dev_iter, and tst_iter.
 
-class EtapeSpeakerDiarizationProtocol(SpeakerDiarizationProtocol):
+class BBCSpeakerDiarizationProtocol(SpeakerDiarizationProtocol):
     """Base speaker diarization protocol for ETAPE database
     This class should be inherited from, not used directly.
     Parameters
@@ -53,7 +53,7 @@ class EtapeSpeakerDiarizationProtocol(SpeakerDiarizationProtocol):
     """
 
     def __init__(self, preprocessors={}, **kwargs):
-        super(EtapeSpeakerDiarizationProtocol, self).__init__(
+        super(BBCSpeakerDiarizationProtocol, self).__init__(
             preprocessors=preprocessors, **kwargs)
         self.uem_parser_ = UEMParser()
         self.mdtm_parser_ = MDTMParser()
@@ -81,7 +81,7 @@ class EtapeSpeakerDiarizationProtocol(SpeakerDiarizationProtocol):
             yield current_file
 
 
-class Debug(SpeakerDiarizationProtocol):
+class Debug(BBCSpeakerDiarizationProtocol):
     """My first speaker diarization protocol """
 
     def trn_iter(self):
