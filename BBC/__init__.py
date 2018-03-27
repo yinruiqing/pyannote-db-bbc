@@ -88,10 +88,12 @@ class Debug(BBCSpeakerDiarizationProtocol):
         return self._subset('debug', 'trn')
 
     def dev_iter(self):
-        return self._subset('debug', 'dev')
+        for _ in []:
+            yield
 
     def tst_iter(self):
-        return self._subset('debug', 'tst')
+        for _ in []:
+            yield
 
 
 # this is where we define each protocol for this database.
