@@ -32,7 +32,7 @@ from setuptools import setup, find_packages
 
 setup(
     # replace "mydatabase" by the name of your database
-    name='pyannote.db.bbv',
+    name='pyannote.db.bbc',
 
     # replace "MyDatabase" by the name of your database
     description="BBC plugin for pyannote-database",
